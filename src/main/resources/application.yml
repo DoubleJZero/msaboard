@@ -1,0 +1,32 @@
+server:
+  port: 8300
+  servlet:
+    context-path: /board-service
+
+spring:
+  application:
+    name: board-service
+  datasource:
+    url: jdbc:mariadb://127.0.0.1:3306/jandb
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: jandb
+    password: jandb
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 500
+
+logging:
+  config: classpath:log/logback-spring.xml
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    registryFetchIntervalSeconds: 5
+    disable-delta: true
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
