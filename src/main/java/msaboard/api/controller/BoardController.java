@@ -5,6 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import msaboard.api.dto.BoardDto;
 import msaboard.api.feign.UserInfoDto;
 import msaboard.api.service.BoardService;
+import msacore.exception.CustomException;
+import msacore.payload.Response;
+import msacore.payload.ResponseFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,10 +33,11 @@ public class BoardController {
     /**
      * 게시판 목록 조회
      * @return 게시판 목록
+     * @throws CustomException
      */
     @GetMapping("/list")
-    public List<BoardDto> getBoardList(){
-        return boardService.getBoardList();
+    public Response<List<BoardDto>> getBoardList() throws CustomException {
+        return ResponseFactory.createSuccess(boardService.getBoardList());
     }
 
     /**
@@ -106,5 +110,23 @@ public class BoardController {
     @GetMapping("/getUserInfoDetail")
     public UserInfoDto getUserInfoDetail(@RequestParam String userId){
         return boardService.getUserInfoDetail(userId);
+    }
+
+    /**
+     * occurBusinessException
+     * @throws CustomException
+     */
+    @GetMapping("/occurBusinessException")
+    public void occurBusinessException() throws CustomException {
+        boardService.occurBusinessException();
+    }
+
+    /**
+     * occurBadRequestException
+     * @throws CustomException
+     */
+    @GetMapping("/occurBadRequestException")
+    public void occurBadRequestException() throws CustomException {
+        boardService.occurBadRequestException();
     }
 }

@@ -7,6 +7,9 @@ import msaboard.api.feign.UserFeignClient;
 import msaboard.api.feign.UserInfoDto;
 import msaboard.api.repository.BoardRepository;
 import msaboard.data.entity.TbBoardInfo;
+import msacore.constant.COMMON_MESSAGE;
+import msacore.exception.CustomException;
+import msacore.exception.CustomExceptionFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -126,5 +129,21 @@ public class BoardService {
      */
     public UserInfoDto getUserInfoDetail(String userId){
         return userFeignClient.getUserInfoDetail(userId);
+    }
+
+    /**
+     * businessException test
+     * @throws CustomException
+     */
+    public void occurBusinessException() throws CustomException {
+        throw CustomExceptionFactory.createBusinessException(COMMON_MESSAGE.UNKNOWN);
+    }
+
+    /**
+     * BadRequestException test
+     * @throws CustomException
+     */
+    public void occurBadRequestException() throws CustomException {
+        throw CustomExceptionFactory.createBusinessException(COMMON_MESSAGE.BAD_REQUEST);
     }
 }
