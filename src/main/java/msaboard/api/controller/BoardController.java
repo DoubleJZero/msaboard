@@ -33,7 +33,6 @@ public class BoardController {
     /**
      * 게시판 목록 조회
      * @return 게시판 목록
-     * @throws CustomException
      */
     @GetMapping("/list")
     public Response<List<BoardDto>> getBoardList() throws CustomException {
@@ -114,19 +113,21 @@ public class BoardController {
 
     /**
      * occurBusinessException
-     * @throws CustomException
+     * @return Response<?>
      */
     @GetMapping("/occurBusinessException")
-    public void occurBusinessException() throws CustomException {
+    public Response<?> occurBusinessException() throws CustomException {
         boardService.occurBusinessException();
+        return ResponseFactory.createSuccess();
     }
 
     /**
      * occurBadRequestException
-     * @throws CustomException
+     * @return Response<?>
      */
     @GetMapping("/occurBadRequestException")
-    public void occurBadRequestException() throws CustomException {
+    public Response<?> occurBadRequestException() throws CustomException {
         boardService.occurBadRequestException();
+        return ResponseFactory.createSuccess();
     }
 }
