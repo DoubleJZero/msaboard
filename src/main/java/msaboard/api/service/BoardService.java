@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -133,7 +132,6 @@ public class BoardService {
 
     /**
      * businessException test
-     * @throws CustomException
      */
     public void occurBusinessException() throws CustomException {
         throw CustomExceptionFactory.createBusinessException(COMMON_MESSAGE.UNKNOWN);
@@ -141,9 +139,8 @@ public class BoardService {
 
     /**
      * BadRequestException test
-     * @throws CustomException
      */
     public void occurBadRequestException() throws CustomException {
-        throw CustomExceptionFactory.createBusinessException(COMMON_MESSAGE.BAD_REQUEST);
+        throw CustomExceptionFactory.createBadRequestException(COMMON_MESSAGE.BAD_REQUEST);
     }
 }
