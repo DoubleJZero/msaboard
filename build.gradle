@@ -21,7 +21,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 
 	//custom core 추가
-	implementation 'com.github.DoubleJZero:msacore:0.0.6'
+	implementation 'com.github.DoubleJZero:msacore:0.0.7'
 	//querydsl 추가
 	implementation 'com.querydsl:querydsl-jpa'
 	implementation 'com.querydsl:querydsl-sql:4.4.0'
