@@ -5,9 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import msaboard.api.dto.BoardDto;
 import msaboard.api.feign.UserFeignClient;
 import msaboard.api.feign.UserInfoDto;
+import msaboard.api.repository.BatchSqlRepositiry;
 import msaboard.api.repository.BoardRepository;
 import msaboard.data.entity.TbBoardInfo;
 import msacore.constant.COMMON_MESSAGE;
+import msacore.dto.BatchDto;
 import msacore.exception.CustomException;
 import msacore.exception.CustomExceptionFactory;
 import org.springframework.stereotype.Service;
@@ -35,6 +37,8 @@ public class BoardService {
     private final BoardRepository boardRepository;
 
     private final UserFeignClient userFeignClient;
+
+    private final BatchSqlRepositiry batchSqlRepositiry;
 
     /**
      * 게시판 목록 조회
@@ -142,5 +146,21 @@ public class BoardService {
      */
     public void occurBadRequestException() throws CustomException {
         throw CustomExceptionFactory.createBadRequestException(COMMON_MESSAGE.BAD_REQUEST);
+    }
+
+    /**
+     * count 0으로 배치로 일괄 업데이트
+     */
+    @Transactional
+    public void setInitailizeCount() throws CustomException {
+        try{
+            List<TbBoardInfo> list = boardRepository.findAll();
+            for(TbBoardInfo boardInfo : list) boardInfo.setBoardCount(0L);
+            BatchDto<TbBoardInfo> batchDto = new BatchDto<>();
+            batchDto.setData(list);
+            batchSqlRepositiry.batchUpdate(batchDto);
+        } catch (Exception e){
+            throw CustomExceptionFactory.createBusinessException(COMMON_MESSAGE.UNKNOWN);
+        }
     }
 }

@@ -3,6 +3,8 @@ package msaboard.data.entity;
 import lombok.*;
 
 import msaboard.data.BaseTimeEntity;
+import msacore.annotation.BatchIgnore;
+import msacore.annotation.BatchWhereClause;
 import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
@@ -30,14 +32,17 @@ import javax.persistence.*;
 )*/
 public class TbBoardInfo extends BaseTimeEntity {
 
+    @BatchWhereClause
     @Id
     //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TB_BOARD_INFO_SEQ_GENERATOR")
     @Column(name = "BOARD_ID", nullable = false)
     private Long boardId;                                      //게시판 아이디
 
+    @BatchIgnore
     @Column(name = "BOARD_TITLE")
     private String boardTitle;                                 //게시판 제목
 
+    @BatchIgnore
     @Column(name = "BOARD_CONTENTS")
     private String boardContents;                              //게시판 내용
 

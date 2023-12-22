@@ -1,5 +1,6 @@
 package msaboard.data;
 
+import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -27,6 +28,7 @@ public class BaseTimeEntity {
 
     @Column(name="RGST_ID", length=20)
     @Setter
+    @Getter
     private String rgstId;
 
     @Column(name="RGST_DTTM")

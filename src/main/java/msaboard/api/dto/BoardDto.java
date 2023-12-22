@@ -58,6 +58,7 @@ public class BoardDto {
                 .boardTitle(tbBoardInfo.getBoardTitle())
                 .boardContents(tbBoardInfo.getBoardContents())
                 .boardCount(tbBoardInfo.getBoardCount())
+                .rgstId(tbBoardInfo.getRgstId())
                 .build();
     }
 }

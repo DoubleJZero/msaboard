@@ -130,4 +130,16 @@ public class BoardController {
         boardService.occurBadRequestException();
         return ResponseFactory.createSuccess();
     }
+
+    /**
+     * <pre>
+     *     count 0으로 배치로 일괄 업데이트
+     * </pre>
+     * @return Response<?>
+     */
+    @PostMapping("/setInitailizeCount")
+    public Response<?> setInitailizeCount() throws CustomException {
+        boardService.setInitailizeCount();
+        return ResponseFactory.createSuccess();
+    }
 }
