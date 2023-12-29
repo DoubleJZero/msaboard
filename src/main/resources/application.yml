@@ -28,4 +28,5 @@ management:
 kafka:
   consumer:
     group-id: first-group
-  bootstrap-servers: 127.0.0.1:9092
+  bootstrap-servers: 192.168.56.1:9092
+  #bootstrap-servers: 127.0.0.1:9092
