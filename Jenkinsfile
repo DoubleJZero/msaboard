@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        h 'docker stop jandb:msaboard'
+                        sh 'docker stop jandb:msaboard'
                         sh 'docker rm jandb:msaboard'
                     } catch (e) {
                         echo 'fail to stop and remove container'
