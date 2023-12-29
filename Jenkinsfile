@@ -15,12 +15,9 @@ pipeline {
         stage('Build image') {
             steps {
                 sh 'ls -al'
-                dir('[msaboard]') {
-                    sh 'ls -al'
-                    sh 'chmod +x ./gradlew'
-                    sh './gradlew build'
-                    sh 'docker build -t jandb:msaboard .'
-                }
+                sh 'chmod +x ./gradlew'
+                sh './gradlew build'
+                sh 'docker build -t jandb:msaboard .'
                 echo 'Build image...'
             }
         }
