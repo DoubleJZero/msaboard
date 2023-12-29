@@ -97,3 +97,7 @@ clean {
 sourceSets{
 	main.java.srcDir querydslDir
 }
+
+jar {
+	enabled = true
+}
