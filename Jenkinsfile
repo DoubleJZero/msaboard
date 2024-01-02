@@ -26,8 +26,8 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'docker stop jandb:msaboard'
-                        sh 'docker rm jandb:msaboard'
+                        sh 'docker stop boardService'
+                        sh 'docker rm boardService'
                     } catch (e) {
                         echo 'fail to stop and remove container'
                     }
@@ -36,7 +36,7 @@ pipeline {
         }
         stage('Run New image') {
             steps {
-                sh 'docker run --name boardService -d -p 8300:8300 jandb:msaboard'
+                sh 'docker run --name boardService -d -p 8300:8300 -e USE_PROFILE=dev jandb:msaboard'
                 echo 'Run New member image'
             }
         }
