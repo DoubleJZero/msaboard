@@ -29,6 +29,7 @@ public class FromOtherServiceCallController {
      * @return 게시판 목록
      */
     @GetMapping("/getBoardDetail/{boardId}")
+    //@RequestMapping(method = RequestMethod.GET, value = "/getBoardDetail/{boardId}", consumes = "application/json", produces = "application/json")
     public BoardDto getBoardDetail(@PathVariable Long boardId){
         return boardService.getBoardDetail(boardId);
     }

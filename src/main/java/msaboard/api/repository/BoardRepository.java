@@ -16,7 +16,7 @@ import org.springframework.data.jpa.repository.Query;
  */
 public interface BoardRepository extends JpaRepository<TbBoardInfo, Long>,BoardRepositoryCustom {
 
-    @Query(nativeQuery = true, value="SELECT NEXTVAL (jandb.tb_board_info_seq)")
+    @Query(nativeQuery = true, value="SELECT NEXTVAL(JANDB.TB_BOARD_INFO_SEQ)")
     Long nextValueBoardId();
 
     void deleteByRgstId(String rgstId);

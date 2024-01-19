@@ -1,5 +1,6 @@
 package msaboard.api.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,6 +39,7 @@ public class BoardDto {
      * dto -> entity convert
      * @return entity
      */
+    @JsonIgnore
     public TbBoardInfo toEntity(){
         return TbBoardInfo.builder()
                 .boardId(boardId)
@@ -52,6 +54,7 @@ public class BoardDto {
      * @param tbBoardInfo 게시판정보 entity
      * @return BoardDto
      */
+    @JsonIgnore
     public static BoardDto of(TbBoardInfo tbBoardInfo){
         return BoardDto.builder()
                 .boardId(tbBoardInfo.getBoardId())

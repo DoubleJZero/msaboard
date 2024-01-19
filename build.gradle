@@ -21,7 +21,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 
 	//custom core 추가
-	implementation 'com.github.DoubleJZero:msacore:0.1.6'
+	implementation 'com.github.DoubleJZero:msacore:0.1.8'
 
 	//kafka
 	implementation 'org.springframework.kafka:spring-kafka'
@@ -29,6 +29,9 @@ dependencies {
 	//querydsl 추가
 	implementation 'com.querydsl:querydsl-jpa'
 	implementation 'com.querydsl:querydsl-sql:4.4.0'
+
+	// Jasypt
+	implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.4'
 
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.mariadb.jdbc:mariadb-java-client'
