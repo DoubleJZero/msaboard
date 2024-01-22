@@ -63,6 +63,9 @@ dependencies {
 	//Entity 관련
 	implementation 'org.hibernate:hibernate-entitymanager'
 
+	//config server
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+
 	//H2 DB
 	runtimeOnly 'com.h2database:h2'
 	//Lombok
