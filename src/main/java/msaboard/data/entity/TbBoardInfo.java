@@ -25,16 +25,16 @@ import javax.persistence.*;
 @DynamicInsert
 @Table(name = "TB_BOARD_INFO")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-/*@SequenceGenerator(
+@SequenceGenerator(
         name="TB_BOARD_INFO_SEQ_GENERATOR", //시퀀스 제너레이터 이름
         sequenceName="TB_BOARD_INFO_SEQ", //시퀀스 이름
         allocationSize=1 //메모리를 통해 할당할 범위 사이즈
-)*/
+)
 public class TbBoardInfo extends BaseTimeEntity {
 
     @BatchWhereClause
     @Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TB_BOARD_INFO_SEQ_GENERATOR")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TB_BOARD_INFO_SEQ_GENERATOR")
     @Column(name = "BOARD_ID", nullable = false)
     private Long boardId;                                      //게시판 아이디
 

@@ -32,3 +32,9 @@ kafka:
     group-id: first-group
   bootstrap-servers: 192.168.56.1:9092
   #bootstrap-servers: 127.0.0.1:9092
+
+---
+
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect

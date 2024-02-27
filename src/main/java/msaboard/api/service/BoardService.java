@@ -71,7 +71,7 @@ public class BoardService {
     public void saveBoard(BoardDto boardDto){
         if(boardDto.getBoardId() == null){
             TbBoardInfo entity =  boardDto.toEntity();
-            entity.setBoardId(boardRepository.nextValueBoardId());
+            //entity.setBoardId(boardRepository.nextValueBoardId());
             entity.setBoardCount(0L);
             entity.setRgstId(boardDto.getRgstId());
             entity.setUpdtId(boardDto.getRgstId());
